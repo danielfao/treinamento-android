@@ -1,6 +1,6 @@
-package domain;
+package br.com.monitoratec.treinamentoandroid.domain;
 
-import domain.entity.Status;
+import br.com.monitoratec.treinamentoandroid.domain.entity.Status;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
