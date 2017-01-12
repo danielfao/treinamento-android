@@ -3,10 +3,11 @@ package br.com.monitoratec.treinamentoandroid.domain.domain;
 import com.google.gson.GsonBuilder;
 
 import br.com.monitoratec.treinamentoandroid.domain.domain.entity.Status;
-import retrofit2.Call;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
+import rx.Observable;
 
 /**
  * Interface da API GitHub Status.
@@ -19,6 +20,7 @@ public interface GitHubStatusApi {
     String BASE_URL = "https://status.github.com/api/";
 
     Retrofit RETROFIT = new Retrofit.Builder()
+            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(
                     // 2012-12-07T18:11:55Z
                     new GsonBuilder()
@@ -26,7 +28,6 @@ public interface GitHubStatusApi {
                             .create()))
             .baseUrl(BASE_URL)
             .build();
-
     @GET("last-message.json")
-    Call<Status> lastMessage();
+    Observable<Status> lastMessage();
 }
