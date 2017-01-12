@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.actionCall:
-                final String maikoNormalNumber = "+55 16 99387-0941";
+                final String maikoNormalNumber = "+55 16 98807-6973";
                 final Uri uri = Uri.fromParts("tel", maikoNormalNumber, null);
                 final Intent intent = new Intent(Intent.ACTION_DIAL, uri);
                 startActivity(intent);
