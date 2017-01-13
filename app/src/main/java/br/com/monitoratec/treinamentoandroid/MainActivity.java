@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.support.design.widget.TextInputLayout;
@@ -18,7 +17,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.jakewharton.rxbinding.view.RxView;
 import com.jakewharton.rxbinding.widget.RxTextView;
+
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import br.com.monitoratec.treinamentoandroid.domain.domain.entity.AccessToken;
 import br.com.monitoratec.treinamentoandroid.domain.domain.entity.GitHubApi;
@@ -32,11 +35,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Credentials;
-import rx.Subscription;
+import dagger.Lazy;
+
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -51,37 +55,29 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.btOAuth)
     Button mBtnOAuth;
 
-    private GitHubStatusApi mGitHubStatusApi;
-    private GitHubApi mGitHubApi;
-    private GitHubOAuthApi mGitHubOAuthApi;
-    private SharedPreferences mSharedPrefs;
+    @Inject
+    GitHubStatusApi mGitHubStatusApi;
+    @Inject
+    GitHubApi mGitHubApi;
+    @Inject
+    GitHubOAuthApi mGitHubOAuthApi;
+    @Inject
+    @Named("secret")
+    SharedPreferences mSharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        super.setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+        getDaggerDiComponent().inject(this);
 
-        mBtnOAuth.setOnClickListener(view -> {
-            final String baseUrl = GitHubOAuthApi.BASE_URL + "authorize";
-            final String clientId = getString(R.string.oauth_client_id);
-            final String redirectUri = getOAuthRedirectUri();
-            final Uri uri = Uri.parse(baseUrl + "?client_id=" + clientId + "&redirect_uri=" + redirectUri);
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-            startActivity(intent);
-        });
-
-        mGitHubStatusApi = GitHubStatusApi.RETROFIT.create(GitHubStatusApi.class);
-        mGitHubApi = GitHubApi.RETROFIT.create(GitHubApi.class);
-        mGitHubOAuthApi = GitHubOAuthApi.RETROFIT.create(GitHubOAuthApi.class);
-
-        mSharedPrefs = getSharedPreferences(getString(R.string.sp_file), MODE_PRIVATE);
         this.bindUsingRx();
     }
 
     private void bindUsingRx() {
-        Subscription subscribe = RxTextView.textChanges(mLayoutTxtUsername.getEditText())
+        RxTextView.textChanges(mLayoutTxtUsername.getEditText())
                 .skip(1)
                 .subscribe(text -> {
                     AppUtils.validateRequiredFields(this, mLayoutTxtUsername);
@@ -91,6 +87,14 @@ public class MainActivity extends AppCompatActivity {
                 .subscribe(text -> {
                     AppUtils.validateRequiredFields(this, mLayoutTxtPassword);
                 });
+        RxView.clicks(mBtnOAuth).subscribe(aVoid -> {
+            final String baseUrl = GitHubOAuthApi.BASE_URL + "authorize";
+            final String clientId = getString(R.string.oauth_client_id);
+            final String redirectUri = getOAuthRedirectUri();
+            final Uri uri = Uri.parse(baseUrl + "?client_id=" + clientId + "&redirect_uri=" + redirectUri);
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        });
     }
 
     @OnClick(R.id.btBasicAuth)

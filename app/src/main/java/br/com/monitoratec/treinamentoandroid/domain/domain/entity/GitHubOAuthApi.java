@@ -1,8 +1,5 @@
 package br.com.monitoratec.treinamentoandroid.domain.domain.entity;
 
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Headers;
@@ -17,12 +14,6 @@ import rx.Observable;
 
 public interface GitHubOAuthApi {
     String BASE_URL = "https://github.com/login/oauth/";
-
-    Retrofit RETROFIT = new Retrofit.Builder()
-            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BASE_URL)
-            .build();
 
     @Headers({"Accept: application/json"})
     @FormUrlEncoded
