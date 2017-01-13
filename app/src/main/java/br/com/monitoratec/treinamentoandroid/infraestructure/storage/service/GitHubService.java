@@ -1,16 +1,17 @@
-package br.com.monitoratec.treinamentoandroid.domain.domain.entity;
+package br.com.monitoratec.treinamentoandroid.infraestructure.storage.service;
 
+import br.com.monitoratec.treinamentoandroid.domain.entity.User;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import rx.Observable;
 
 /**
- * Interface da API GitHub Status.
+ * Interface Retrofit from API GitHub.
  *
  * Created by danifao on 2017-01-09.
  */
 
-public interface GitHubApi {
+public interface GitHubService {
 
     String BASE_URL = "https://api.github.com/";
 

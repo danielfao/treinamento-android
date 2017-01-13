@@ -1,5 +1,6 @@
-package br.com.monitoratec.treinamentoandroid.domain.domain.entity;
+package br.com.monitoratec.treinamentoandroid.infraestructure.storage.service;
 
+import br.com.monitoratec.treinamentoandroid.domain.entity.AccessToken;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Headers;
@@ -7,12 +8,12 @@ import retrofit2.http.POST;
 import rx.Observable;
 
 /**
- * Interface da API GitHub Status.
+ * Interface Retrofit from API GitHub OAuth.
  *
  * Created by danifao on 2017-01-09.
  */
 
-public interface GitHubOAuthApi {
+public interface GitHubOAuthService {
     String BASE_URL = "https://github.com/login/oauth/";
 
     @Headers({"Accept: application/json"})

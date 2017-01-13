@@ -1,4 +1,4 @@
-package br.com.monitoratec.treinamentoandroid.domain.domain.entity;
+package br.com.monitoratec.treinamentoandroid.domain.entity;
 
 import com.google.gson.annotations.SerializedName;
 

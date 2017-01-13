@@ -2,12 +2,12 @@ package br.com.monitoratec.treinamentoandroid.dagger;
 
 import javax.inject.Singleton;
 
-import br.com.monitoratec.treinamentoandroid.BaseActivity;
-import br.com.monitoratec.treinamentoandroid.MainActivity;
+import br.com.monitoratec.treinamentoandroid.dagger.module.infrastructure.ManagerModule;
+import br.com.monitoratec.treinamentoandroid.dagger.module.presentation.HelperModule;
 import br.com.monitoratec.treinamentoandroid.dagger.module.ApplicationModule;
-import br.com.monitoratec.treinamentoandroid.dagger.module.NetworkModule;
+import br.com.monitoratec.treinamentoandroid.dagger.module.infrastructure.NetworkModule;
 import br.com.monitoratec.treinamentoandroid.dagger.module.PreferenceModule;
-import br.com.monitoratec.treinamentoandroid.dagger.module.ServiceModule;
+import br.com.monitoratec.treinamentoandroid.dagger.module.infrastructure.ServiceModule;
 import dagger.Component;
 
 /**
@@ -17,12 +17,12 @@ import dagger.Component;
 @Singleton
 @Component(modules = {
         ApplicationModule.class,
+        HelperModule.class,
         PreferenceModule.class,
         NetworkModule.class,
-        ServiceModule.class
+        ServiceModule.class,
+        ManagerModule.class
 })
-
 public interface DiComponent {
-    void inject (BaseActivity activity);
-    void inject(MainActivity activity);
+    UiComponent uiComponent();
 }

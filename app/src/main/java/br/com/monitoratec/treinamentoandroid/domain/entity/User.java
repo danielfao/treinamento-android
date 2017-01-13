@@ -1,4 +1,4 @@
-package br.com.monitoratec.treinamentoandroid.domain.domain.entity;
+package br.com.monitoratec.treinamentoandroid.domain.entity;
 
 /**
  * Created by danifao on 2017-01-11.
