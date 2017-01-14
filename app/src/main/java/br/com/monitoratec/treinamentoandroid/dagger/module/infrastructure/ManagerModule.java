@@ -15,6 +15,9 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
+ *
+ * Module for managers (Repository pattern implementations).
+ *
  * Created by danifao on 2017-01-13.
  */
 

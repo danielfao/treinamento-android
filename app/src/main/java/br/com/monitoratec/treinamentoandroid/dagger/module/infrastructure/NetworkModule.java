@@ -16,6 +16,9 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
+ *
+ * Module for network instances (Retrofit configurations).
+ *
  * Created by danifao on 2017-01-12.
  */
 

@@ -11,6 +11,9 @@ import br.com.monitoratec.treinamentoandroid.dagger.module.infrastructure.Servic
 import dagger.Component;
 
 /**
+ *
+ * Main Dagger {@link Component}.
+ *
  * Created by danifao on 2017-01-12.
  */
 

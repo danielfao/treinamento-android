@@ -6,6 +6,9 @@ import br.com.monitoratec.treinamentoandroid.MyApplication;
 import br.com.monitoratec.treinamentoandroid.dagger.UiComponent;
 
 /**
+ *
+ * Base {@link AppCompatActivity}.
+ *
  * Created by danifao on 2017-01-12.
  */
 

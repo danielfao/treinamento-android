@@ -12,6 +12,9 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
+ *
+ * Module for {@link SharedPreferences} instance(s).
+ *
  * Created by danifao on 2017-01-12.
  */
 
@@ -20,7 +23,6 @@ public class PreferenceModule {
 
     @Provides
     @Singleton
-    @Named("secret")
     SharedPreferences providesSharedPreferences(Context context) {
         final String fileName = context.getString(R.string.sp_file);
         return context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
@@ -28,7 +30,7 @@ public class PreferenceModule {
 
     @Provides
     @Singleton
-    @Named("default")
+    @Named("non-secret")
     SharedPreferences providesSharedPreferencesDefault(Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context);
     }

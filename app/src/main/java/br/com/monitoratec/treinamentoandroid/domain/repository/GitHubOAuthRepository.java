@@ -11,5 +11,5 @@ import rx.Observable;
 
 public interface GitHubOAuthRepository {
 
-    Observable<AccessToken> accessToken(String clientId, String clientSecret, String code);
+    Observable<AccessToken> getAccessToken(String clientId, String clientSecret, String code);
 }

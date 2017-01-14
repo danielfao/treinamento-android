@@ -8,6 +8,9 @@ import br.com.monitoratec.treinamentoandroid.dagger.UiComponent;
 import br.com.monitoratec.treinamentoandroid.dagger.module.ApplicationModule;
 
 /**
+ *
+ * My custom {@link Application}.
+ *
  * Created by danifao on 2017-01-12.
  */
 

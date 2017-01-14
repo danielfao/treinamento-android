@@ -15,6 +15,9 @@ import static br.com.monitoratec.treinamentoandroid.dagger.module.infrastructure
 import static br.com.monitoratec.treinamentoandroid.dagger.module.infrastructure.NetworkModule.RETROFIT_GITHUB_STATUS;
 
 /**
+ *
+ * Module for services (Retrofit interfaces).
+ *
  * Created by danifao on 2017-01-12.
  */
 

@@ -21,7 +21,6 @@ import com.jakewharton.rxbinding.view.RxView;
 import com.jakewharton.rxbinding.widget.RxTextView;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import br.com.monitoratec.treinamentoandroid.presentation.base.BaseActivity;
 import br.com.monitoratec.treinamentoandroid.R;
@@ -34,6 +33,13 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Credentials;
 
+/**
+ *
+ * GitHub authentication activity.
+ *
+ * Created by danifao on 2017-01-13.
+ */
+
 public class AuthActivity extends BaseActivity implements AuthContract.View {
 
     private static final String TAG = AuthActivity.class.getSimpleName();
@@ -44,7 +50,7 @@ public class AuthActivity extends BaseActivity implements AuthContract.View {
     @BindView(R.id.tilPassword) TextInputLayout mLayoutTxtPassword;
     @BindView(R.id.btOAuth) Button mBtnOAuth;
 
-    @Inject @Named("secret") SharedPreferences mSharedPrefs;
+    @Inject SharedPreferences mSharedPrefs;
     @Inject AppHelper mAppHelper;
     @Inject AuthContract.Presenter mPresenter;
 
@@ -105,7 +111,7 @@ public class AuthActivity extends BaseActivity implements AuthContract.View {
                 //Pegar o access token (Client ID, Client Secret e Code)
                 String clientId = getString(R.string.oauth_client_id);
                 String clientSecret = getString(R.string.oauth_client_secret);
-                mPresenter.callAccessToken(clientId, clientSecret, code);
+                mPresenter.callAccessTokenGettingUser(clientId, clientSecret, code);
             } else if (uri.getQueryParameter("error") != null) {
                 showError(uri.getQueryParameter("error"));
             }

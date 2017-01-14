@@ -4,6 +4,9 @@ import br.com.monitoratec.treinamentoandroid.domain.entity.Status;
 import br.com.monitoratec.treinamentoandroid.domain.entity.User;
 
 /**
+ *
+ * GitHub authentication MVP contract.
+ *
  * Created by danifao on 2017-01-13.
  */
 
@@ -24,6 +27,6 @@ public interface AuthContract {
 
         void callGetUser(String authorization);
 
-        void callAccessToken(String cliId, String cliSecret, String code);
+        void callAccessTokenGettingUser(String cliId, String cliSecret, String code);
     }
 }

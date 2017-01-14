@@ -6,6 +6,9 @@ import br.com.monitoratec.treinamentoandroid.presentation.ui.auth.AuthActivity;
 import dagger.Subcomponent;
 
 /**
+ *
+ * Dagger UI {@link Subcomponent} (per activity scope).
+ *
  * Created by danifao on 2017-01-13.
  */
 
