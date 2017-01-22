@@ -3,6 +3,7 @@ package br.com.monitoratec.treinamentoandroid.dagger;
 import br.com.monitoratec.treinamentoandroid.dagger.module.presentation.PresenterModule;
 import br.com.monitoratec.treinamentoandroid.dagger.scope.PerActivity;
 import br.com.monitoratec.treinamentoandroid.presentation.ui.auth.AuthActivity;
+import br.com.monitoratec.treinamentoandroid.presentation.ui.repos.ReposActivity;
 import dagger.Subcomponent;
 
 /**
@@ -16,4 +17,5 @@ import dagger.Subcomponent;
 @Subcomponent(modules = {PresenterModule.class})
 public interface UiComponent {
     void inject(AuthActivity activity);
+    void inject(ReposActivity reposActivity);
 }

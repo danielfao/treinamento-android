@@ -1,10 +1,10 @@
-package br.com.monitoratec.treinamentoandroid.infraestructure.storage.manager;
+package br.com.monitoratec.treinamentoandroid.infrastructure.storage.manager;
 
 import javax.inject.Inject;
 
 import br.com.monitoratec.treinamentoandroid.domain.entity.AccessToken;
 import br.com.monitoratec.treinamentoandroid.domain.repository.GitHubOAuthRepository;
-import br.com.monitoratec.treinamentoandroid.infraestructure.storage.service.GitHubOAuthService;
+import br.com.monitoratec.treinamentoandroid.infrastructure.storage.service.GitHubOAuthService;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;

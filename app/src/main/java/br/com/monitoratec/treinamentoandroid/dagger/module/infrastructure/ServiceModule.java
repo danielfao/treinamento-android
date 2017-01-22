@@ -3,9 +3,9 @@ package br.com.monitoratec.treinamentoandroid.dagger.module.infrastructure;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
-import br.com.monitoratec.treinamentoandroid.infraestructure.storage.service.GitHubOAuthService;
-import br.com.monitoratec.treinamentoandroid.infraestructure.storage.service.GitHubService;
-import br.com.monitoratec.treinamentoandroid.infraestructure.storage.service.GitHubStatusService;
+import br.com.monitoratec.treinamentoandroid.infrastructure.storage.service.GitHubOAuthService;
+import br.com.monitoratec.treinamentoandroid.infrastructure.storage.service.GitHubService;
+import br.com.monitoratec.treinamentoandroid.infrastructure.storage.service.GitHubStatusService;
 import dagger.Module;
 import dagger.Provides;
 import retrofit2.Retrofit;

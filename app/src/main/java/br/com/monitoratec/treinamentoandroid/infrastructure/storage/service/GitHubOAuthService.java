@@ -1,4 +1,4 @@
-package br.com.monitoratec.treinamentoandroid.infraestructure.storage.service;
+package br.com.monitoratec.treinamentoandroid.infrastructure.storage.service;
 
 import br.com.monitoratec.treinamentoandroid.domain.entity.AccessToken;
 import retrofit2.http.Field;

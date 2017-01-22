@@ -13,9 +13,9 @@ import br.com.monitoratec.treinamentoandroid.domain.entity.User;
 public interface AuthContract {
 
     interface View {
-        void onLoadStatusComplete(Status.Type statusType);
+        void onGetStatusComplete(Status.Type statusType);
 
-        void onAuthSuccess(String credential, User entity);
+        void onGetUserComplete(String credential, User user);
 
         void showError(String message);
     }
@@ -23,10 +23,10 @@ public interface AuthContract {
     interface Presenter {
         void setView(AuthContract.View view);
 
-        void loadStatus();
+        void getStatus();
 
-        void callGetUser(String authorization);
+        void getUser(String authorization);
 
-        void callAccessTokenGettingUser(String cliId, String cliSecret, String code);
+        void getAccessTokenAndUser(String clientId, String clientSecret, String code);
     }
 }
